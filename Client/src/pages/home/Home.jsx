@@ -4,7 +4,7 @@ import "./home.css";
 import { userData } from "../../dummyData";
 import WidgetSm from "../../components/widgetSm/WidgetSm";
 import WidgetLg from "../../components/widgetLg/WidgetLg";
-import SignIn from "../Auth/Login";
+// import SignIn from "../Auth/Login";
 
 export default function Home() {
   return (
