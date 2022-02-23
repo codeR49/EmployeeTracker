@@ -4,6 +4,7 @@ import DevelopmentUrl from "../../data/api";
 import Axios from 'axios';
 
 
+
 export default function TrackerForm() {
 
   const [currentMonthYear, setCurrentMonthYear] = useState('');
@@ -117,12 +118,15 @@ export default function TrackerForm() {
       (res) => {
         let { data } = res;
         console.log(data);
+        
 
       }
     ).catch(error => {
       console.log("error occured")
       console.log(error.data)
+      
     })
+    
   }
 
   return (
