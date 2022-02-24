@@ -2,8 +2,8 @@ const Leaves = require('../models/leave');
 
 const getAllLeaves = (req, res, next) => {
     let rows = [];
-    let id, alsID, client, candidateName, openingBalance, closingBalance, lop, status;
-    Leaves.find({}).select("-_id alsID client candidateName openingBalance closingBalance lop status")
+    let id, alsID, client, candidateName, openingBalance, closingBalance, lop, status, additionalSL, additionalEL, leaveTaken;
+    Leaves.find({}).select("-_id alsID client candidateName openingBalance leaveTaken additionalSL additionalEL closingBalance lop status")
         .then((leave) => {
             for (let i = 0; i < leave.length; i++) {
                 id = i + 1;
@@ -14,12 +14,18 @@ const getAllLeaves = (req, res, next) => {
                 closingBalance = leave[i].closingBalance;
                 lop = Number(leave[i].lop);
                 status = leave[i].status;
+                leaveTaken = leave[i].leaveTaken;
+                additionalSL = leave[i].additionalSL;
+                additionalEL = leave[i].additionalEL;
                 rows.push({
                     id: id,
                     alsID: alsID,
                     client: client,
                     candidateName: candidateName,
                     openingBalance: openingBalance,
+                    leaveTaken: leaveTaken,
+                    additionalSL: additionalSL,
+                    additionalEL: additionalEL,
                     closingBalance: closingBalance,
                     lop: lop,
                     status: status

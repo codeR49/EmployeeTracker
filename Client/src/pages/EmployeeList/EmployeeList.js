@@ -2,16 +2,20 @@ import React, { useState, useEffect } from "react";
 import { DataGrid } from '@mui/x-data-grid';
 import Axios from 'axios';
 import DevelopmentUrl from "../../data/api";
+import "./EmployeeList.css"
 
 const columns = [
-  { field: 'id', headerName: 'Sl.', walsIDth: 100 },
-  { field: 'alsID', headerName: 'ALS ID', walsIDth: 100 },
+  { field: 'id', headerName: 'Sl.', walsIDth: 30 },
+  { field: 'alsID', headerName: 'ALS ID', walsIDth: 50 },
   { field: 'client', headerName: 'Client', width: 130 },
   { field: 'candidateName', headerName: 'Candidate name', width: 130 },
-  { field: 'openingBalance', headerName: 'Opening Bal', type: 'number', width: 100 },
-  { field: 'closingBalance', headerName: 'Closing Bal', type: 'number', width: 100 },
-  { field: 'lop', headerName: 'Lop', type: 'number', width: 100 },
-  { field: 'status', headerName: 'Status', type: 'number', width: 100 }
+  { field: 'openingBalance', headerName: 'Opening Bal',  width: 120 },
+  { field: 'leaveTaken', headerName: 'Leave Taken', width: 120 },
+  { field: 'additionalSL', headerName: 'SL', width: 50 },
+  { field: 'additionalEL', headerName: 'EL', width: 50 },
+  { field: 'closingBalance', headerName: 'Closing Bal',  width: 120 },
+  { field: 'lop', headerName: 'Lop',  width: 50 },
+  { field: 'status', headerName: 'Status',  width: 100 }
 
 ];
 
@@ -30,12 +34,13 @@ export default function DataTable() {
 
   return (
     <div style={{ height: 400, width: '100%' }} className="userList">
-      <DataGrid
+      <DataGrid 
         rows={dataRow}
         columns={columns}
         pageSize={5}
         rowsPerPageOptions={[5]}
         checkboxSelection
+        
       />
     </div>
   );

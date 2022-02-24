@@ -134,9 +134,9 @@ export default function TrackerForm() {
       <div style={{ display: "flex" }}>
         <h3 className="newUserTitle">Add Employee Details</h3>
         <form className="newUserForm1" >
-          <div className="newUserItem1" onChange={onchangemonthyearhandler}>
+          <div className="newUserItem1" >
             <label>Select Year and  Month <sup style={{ color: "red" }}>*</sup>&nbsp;&nbsp;</label>
-            <input type="date" id="myDate" placeholder=" select Date" required="true" />
+            <input type="date" id="myDate" placeholder=" select Date" required  onChange={onchangemonthyearhandler}/>
           </div>
         </form>
       </div>
@@ -144,92 +144,92 @@ export default function TrackerForm() {
       <form className="newUserForm">
         <div className="newUserItem">
           <label>Status <sup style={{ color: "red" }}>*</sup></label>
-          <select className="newUserSelect" name="active" id="active" onChange={onchangestatushandler} required>
+          <select className="newUserSelect" name="active" id="active" required onChange={onchangestatushandler} >
             <option>Select</option>
             <option value="Active">Active</option>
             <option value="Inactive">Inactive</option>
           </select>
         </div>
-        <div className="newUserItem" onChange={onchangealsidhandler}>
+        <div className="newUserItem" >
           <label>ALS Id <sup style={{ color: "red" }}>*</sup></label>
-          <input type="text" placeholder="ALS Id" required="true" />
+          <input type="text" placeholder="ALS Id" required onChange={onchangealsidhandler}/>
         </div>
         <div className="newUserItem" onChange={onchangeclienthandler}>
           <label>Client <sup style={{ color: "red" }}>*</sup></label>
-          <input type="text" placeholder="Client" required="true" />
+          <input type="text" placeholder="Client" required onChange={onchangeclienthandler}/>
         </div>
         <div className="newUserItem" onChange={onchangeclientlobhandler}>
           <label>Client Lob <sup style={{ color: "red" }}>*</sup></label>
-          <input type="text" placeholder="Client Lob" required="true" />
+          <input type="text" placeholder="Client Lob" required onChange={onchangeclientlobhandler}/>
         </div>
 
         <div className="newUserItem" onChange={onchangecandidatenamehandler}>
           <label>Candidate Name <sup style={{ color: "red" }}>*</sup></label>
-          <input type="text" placeholder="Candidate Name" required="true" />
+          <input type="text" placeholder="Candidate Name" required onChange={onchangecandidatenamehandler} />
         </div>
-        <div className="newUserItem" onChange={onchangedateofjoininghandler}>
+        <div className="newUserItem" >
           <label>DOJ <sup style={{ color: "red" }}>*</sup></label>
-          <input type="date" id="myDate" placeholder=" select Date" required="true" />
+          <input type="date" id="myDate" placeholder=" select Date" required  onChange={onchangedateofjoininghandler}/>
         </div>
-        <div className="newUserItem" onChange={onchangedateofchandler}>
+        <div className="newUserItem" >
           <label>DOC</label>
-          <input type="date" id="myDate" placeholder="-- -- -- -- --" />
+          <input type="date" id="myDate" placeholder="-- -- -- -- --" onChange={onchangedateofchandler}/>
         </div>
-        <div className="newUserItem" onChange={onchangelastworkingdatehandler}>
+        <div className="newUserItem" >
           <label>last Working Day </label>
-          <input type="date" placeholder="Batch Monitor" />
+          <input type="date" placeholder="Batch Monitor" onChange={onchangelastworkingdatehandler}/>
         </div>
 
-        <div className="newUserItem" onChange={onchangeprobationperiodhandler}>
+        <div className="newUserItem" >
           <label>Prob Period <sup style={{ color: "red" }}>*</sup></label>
-          <input type="text" placeholder="Prob Period" required="true" />
+          <input type="text" placeholder="Prob Period" required onChange={onchangeprobationperiodhandler} />
         </div>
 
-        <div className="newUserItem" onChange={onchangeelamounthandler}>
+        <div className="newUserItem" >
           <label>El Amount as per CTC</label>
-          <input type="text" placeholder="El Amount as per CTC" />
+          <input type="text" placeholder="El Amount as per CTC" onChange={onchangeelamounthandler}/>
         </div>
 
 
-        <div className="newUserItem" onChange={onchangeeleligibilityhandler}>
+        <div className="newUserItem" >
           <label>El Eligibility</label>
-          <input type="text" placeholder="El Eligibility" />
+          <input type="text" placeholder="El Eligibility" onChange={onchangeeleligibilityhandler}/>
         </div>
-        <div className="newUserItem" onChange={onchangebasichandler}>
+        <div className="newUserItem" >
           <label>Basic Salary <sup style={{ color: "red" }}>*</sup></label>
-          <input type="text" placeholder="Basic" required="true" />
+          <input type="text" placeholder="Basic" required onChange={onchangebasichandler} />
         </div>
-        <div className="newUserItem" onChange={onchangegrosssalaryhandler}>
+        <div className="newUserItem" >
           <label>Gross Salary <sup style={{ color: "red" }}>*</sup></label>
-          <input type="text" placeholder="Gross Salary" required="true" />
+          <input type="text" placeholder="Gross Salary" required onChange={onchangegrosssalaryhandler} />
         </div>
 
-        <div className="newUserItem" onChange={onchangeopeningbalancehandler}>
+        <div className="newUserItem" >
           <label>Op Bal <sup style={{ color: "red" }}>*</sup></label>
-          <input type="text" placeholder="Op Bal" required="true" />
+          <input type="text" placeholder="Op Bal" required onChange={onchangeopeningbalancehandler} />
         </div>
 
-        <div className="newUserItem" onChange={onchangeleavetakenhandler}>
+        <div className="newUserItem" >
           <label>Leave Taken <sup style={{ color: "red" }}>*</sup></label>
-          <input type="text" placeholder="Leave Taken" required="true" />
+          <input type="text" placeholder="Leave Taken" required onChange={onchangeleavetakenhandler} />
         </div>
 
-        <div className="newUserItem" onChange={onchangeadditionalslhandler}>
+        <div className="newUserItem" >
           <label>Addition Sl <sup style={{ color: "red" }}>*</sup></label>
-          <input type="text" placeholder="Addition Sl" required="true" />
+          <input type="text" placeholder="Addition Sl" required onChange={onchangeadditionalslhandler} />
         </div>
 
-        <div className="newUserItem" onChange={onchangeadditionalelhandler}>
+        <div className="newUserItem" >
           <label>Addition El <sup style={{ color: "red" }}>*</sup></label>
-          <input type="text" placeholder="Addition El" required="true" />
+          <input type="text" placeholder="Addition El" required onChange={onchangeadditionalelhandler} />
         </div>
         {/* <div className="newUserItem" onChange={onchangesetclosingbalancehandler}>
           <label>Closing Balance</label>
           <input type="text" placeholder="Closing Balance" />
         </div> */}
-        <div className="newUserItem" onChange={onchangelophandler}>
+        <div className="newUserItem" >
           <label>Lop <sup style={{ color: "red" }}>*</sup></label>
-          <input type="text" placeholder="Lop" required="true" />
+          <input type="text" placeholder="Lop" required onChange={onchangelophandler}/>
         </div>
 
         <button type="submit" className="newUserButton" onClick={submithandler}>Create</button>
