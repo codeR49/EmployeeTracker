@@ -26,7 +26,7 @@ export default function TrackerForm() {
   const [additionalSL, setAdditionalSL] = useState(0);
   const [additionalEL, setAdditionalEL] = useState(0);
   const [closingBalance, setClosingBalance] = useState(0);
-  const [lop, setLop] = useState(0);
+  const [lop, setLop] = useState('');
 
 
   const [submitted, setSubmitted] = useState(false);
