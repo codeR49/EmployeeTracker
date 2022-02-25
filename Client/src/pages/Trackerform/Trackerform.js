@@ -28,35 +28,48 @@ export default function TrackerForm() {
   const [closingBalance, setClosingBalance] = useState(0);
   const [lop, setLop] = useState(0);
 
+
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState(false);
+
   let onchangemonthyearhandler = (event) => {
     setCurrentMonthYear(event.target.value);
+    setSubmitted(false);
   }
   let onchangestatushandler = (event) => {
     setStatus(event.target.value);
+    setSubmitted(false);
   }
   let onchangealsidhandler = (event) => {
     setAlsID(event.target.value);
+    setSubmitted(false);
   }
   let onchangeclienthandler = (event) => {
     setClient(event.target.value);
+    setSubmitted(false);
   }
   let onchangeclientlobhandler = (event) => {
     setClientLob(event.target.value);
+    setSubmitted(false);
   }
   let onchangecandidatenamehandler = (event) => {
     setCandidateName(event.target.value);
+    setSubmitted(false);
   }
   let onchangedateofjoininghandler = (event) => {
     setDateOfJoining(event.target.value);
+    setSubmitted(false);
   }
   let onchangedateofchandler = (event) => {
     setDateOfC(event.target.value);
+
   }
   let onchangelastworkingdatehandler = (event) => {
     setLastWorkingDate(event.target.value);
   }
   let onchangeprobationperiodhandler = (event) => {
     setProbationPeriod(event.target.value);
+    setSubmitted(false);
   }
   let onchangeelamounthandler = (event) => {
     setElAmount(event.target.value);
@@ -66,27 +79,32 @@ export default function TrackerForm() {
   }
   let onchangebasichandler = (event) => {
     setBasic(event.target.value);
+    setSubmitted(false);
   }
   let onchangegrosssalaryhandler = (event) => {
     setGrossSalary(event.target.value);
+    setSubmitted(false);
   }
   let onchangeleavetakenhandler = (event) => {
     setLeaveTaken(event.target.value);
+    setSubmitted(false);
   }
   let onchangeopeningbalancehandler = (event) => {
     setOpeningBalance(event.target.value);
+    setSubmitted(false);
   }
   let onchangeadditionalslhandler = (event) => {
     setAdditionalSL(event.target.value);
+    setSubmitted(false);
   }
   let onchangeadditionalelhandler = (event) => {
     setAdditionalEL(event.target.value);
+    setSubmitted(false);
   }
-  // let onchangesetclosingbalancehandler = (event) => {
-  //   setClosingBalance(event.target.value);
-  // }
+
   let onchangelophandler = (event) => {
     setLop(event.target.value);
+    setSubmitted(false);
   }
 
   let submithandler = (event) => {
@@ -114,6 +132,16 @@ export default function TrackerForm() {
       lop: lop
 
     };
+    if (currentMonthYear === '' || status === '' || alsID === '' || client==="" || clientLob==="" ||
+    candidateName==="" || dateOfJoining==="" || probationPeriod==="" || basic==="" || grossSalary ==="" ||
+    openingBalance==="" ||  leaveTaken==="" ||  additionalSL==="" ||  additionalEL==="" ||  closingBalance==="" || 
+    lop==="" ) {
+      setError(true);
+    } else {
+      setSubmitted(true);
+      setError(false);
+    }
+    
     Axios.post(DevelopmentUrl + '/leaves', formdata).then(
       (res) => {
         let { data } = res;
@@ -128,6 +156,28 @@ export default function TrackerForm() {
     })
     
   }
+  const successMessage = () => {
+    return (
+      <div
+        className="success"
+        style={{
+          display: submitted ? '' : 'none',
+        }}>
+        <h3 style={{color:"#4F8B0F"}}>Candidate {candidateName} Added Successfully !!</h3>
+      </div>
+    );
+  };
+  const errorMessage = () => {
+    return (
+      <div
+        className="error"
+        style={{
+          display: error ? '' : 'none',
+        }}>
+        <h4 >Please enter <sup style={{color:"red"}}>*</sup> fields</h4>
+      </div>
+    );
+  };
 
   return (
     <div className="newUser">
@@ -233,7 +283,11 @@ export default function TrackerForm() {
         </div>
 
         <button type="submit" className="newUserButton" onClick={submithandler}>Create</button>
+     
+   
       </form>
+      {errorMessage()}
+        {successMessage()}
     </div>
   );
 

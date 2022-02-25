@@ -22,17 +22,17 @@ export default function Trackeremp() {
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
           <TabList onChange={handleChange} aria-label="lab API tabs example">
             <Tab label=" Add Employee Details" value="1" />
-            <Tab label="Upload Excell Data" value="2" />
+            {/* <Tab label="Upload Excell Data" value="2" /> */}
            
           </TabList>
         </Box>
         <TabPanel value="1">
         <TrackerForm/>
         </TabPanel>
-        <TabPanel value="2">  
+        {/* <TabPanel value="2">  
         
         <TrackerExcell/>
-        </TabPanel>
+        </TabPanel> */}
         
       </TabContext>
     </Box>
