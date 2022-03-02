@@ -1,18 +1,11 @@
-'use strict';
-
 const express = require('express');
-const {upload} = require('../helpers/filehelper');
-const {singleFileUpload, multipleFileUpload,
-     getallSingleFiles, getallMultipleFiles} = require('../controllers/fileuploaderController');
-const router = express.Router();
+const { upload } = require('../helpers/filehelper');
+const fileController = require('../controllers/fileuploaderController');
+const fileRouter = express.Router();
 
+fileRouter.get('/', fileController.getAllExcelData);
+fileRouter.post('/', upload.single('file'), fileController.singleFileUpload);
 
-router.post('/singleFile', upload.single('file'), singleFileUpload);
-router.post('/multipleFiles', upload.array('files'), multipleFileUpload);
-router.get('/getSingleFiles', getallSingleFiles);
-router.get('/getMultipleFiles', getallMultipleFiles);
+fileRouter.get('/leave', fileController.getLeaveTrackerNewTracker);
 
-
-module.exports = {
-    routes: router
-}
+module.exports = fileRouter;

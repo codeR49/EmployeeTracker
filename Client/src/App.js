@@ -4,7 +4,7 @@ import "./App.css";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-
+import ExcelData from "./pages/ExcelData/ExcelData"
 import Trackeremp from "./pages/TrackerEmp/TrackerEmp";
 import EmployeeList from "./pages/EmployeeList/EmployeeList";
 
@@ -30,6 +30,9 @@ function App() {
           </Route>
           <Route path="/employeedetails">
             <EmployeeList/>
+          </Route>
+          <Route path="/exceldata">
+            <ExcelData/>
           </Route>
         
         </Switch>

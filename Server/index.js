@@ -5,6 +5,10 @@ const path = require('path');
 const cors = require('cors');
 const logger = require('morgan');
 const passport = require('passport');
+var XLSX = require('xlsx');
+// var workbook = XLSX.readFile('Sample-Spreadsheet-10-rows.xls');
+// var sheet_name_list = workbook.SheetNames;
+// console.log(XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[0]]))
 
 const fileRoutes = require('./routes/file-upload-routes');
 const userRoutes = require('./routes/users-routes');
@@ -19,12 +23,10 @@ app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-
-app.use(passport.initialize());
-
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+//app.use(passport.initialize());
 
-app.use('/api', fileRoutes.routes);
+app.use('/exceldata', fileRoutes);
 app.use('/users', userRoutes);
 app.use('/leaves', leavesRoutes);
 

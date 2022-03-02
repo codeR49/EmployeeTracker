@@ -1,7 +1,7 @@
 import "./sidebar.css";
 import {
   LineStyle,
-  
+  Storefront,
   PermIdentity,
  
 } from "@material-ui/icons";
@@ -46,12 +46,12 @@ export default function Sidebar() {
               </li>
             </Link>
            
-            {/* <Link to="/products" className="link">
+            <Link to="/exceldata" className="link">
               <li className="sidebarListItem">
                 <Storefront className="sidebarIcon" />
-                Products
+                Excel Data
               </li>
-            </Link> */}
+            </Link>
         
           
           </ul>

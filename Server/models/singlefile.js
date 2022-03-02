@@ -7,16 +7,8 @@ const singleFileSchema = new Schema({
         type: String,
         required: true
     },
-    filePath: {
-        type: String,
-        required: true
-    },
-    fileType: {
-        type: String,
-        required: true
-    },
-    fileSize: {
-        type: String,
+    excelJson: {
+        type: Schema.Types.Mixed,
         required: true
     }
 }, {timestamps: true});

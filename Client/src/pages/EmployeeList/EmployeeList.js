@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { DataGrid } from '@mui/x-data-grid';
+import { DataGrid ,GridToolbar} from '@mui/x-data-grid';
 import Box from '@mui/material/Box';
 import Axios from 'axios';
 import DevelopmentUrl from "../../data/api";
 import "./EmployeeList.css"
-import { style } from "@mui/system";
 
 const columns = [
   { field: 'id', headerName: 'Sl.No', walsIDth: 30 , headerClassName: 'abc',},
@@ -54,6 +53,7 @@ export default function DataTable() {
     pageSize={10}
     rowsPerPageOptions={[10]}
     checkboxSelection
+    components={{ Toolbar: GridToolbar }}
     
   /></Box>
     </div>
