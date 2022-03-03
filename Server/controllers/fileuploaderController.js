@@ -1,6 +1,5 @@
 const SingleFile = require('../models/singlefile');
-const XLSX = require('xlsx');
-const excelToJson = require('convert-excel-to-json');
+const csv=require('csvtojson');
 
 const getAllExcelData = (req, res, next) => {
     SingleFile.find({})
@@ -12,50 +11,14 @@ const getAllExcelData = (req, res, next) => {
         .catch((err) => next(err));
 }
 
-// const singleFileUpload = (req, res, next) => {
-
-//     let file = req.file.path;
-
-//     console.log(file);
-//     const result = excelToJson({
-//         sourceFile: fs.readFileSync(file)
-//     });
-//     console.log(result);
-//     SingleFile.create({
-//         fileName: req.file.fileName,
-//         excelJson: result
-//     })
-//         .then((excel) => {
-//             res.statusCode = 200;
-//             res.setHeader('Content-type', 'application/json');
-//             res.json(excel)
-//         }, (err) => next(err))
-//         .catch((err) => next(err))
-// }
 
 const singleFileUpload = async (req, res, next) => {
     try {
-
-        let name = `${req.file.originalname}`;
-        //let fileName = req.file.filename;
-        //console.log(typeof(fileName));
-        //console.log(name + 'origin');
-        //console.log(fileName);
-         let result = await excelToJson({
-            sourceFile: name
-        });
-        console.log(result);
-        // let workbook = XLSX.readFile(fileName);
-        // let sheet_name_list = workbook.SheetNames;
-        // console.log(sheet_name_list);
-        // let excelToJson = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[0]]);
-        //console.log(XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[0]]));
-        // const file = new SingleFile({
-        //      fileName: fileName,
-        //      excelJson: result
-        //     });
-
-        await SingleFile.create({fileName: name, excelJson: result});
+        const csvFilePath= req.file.path;
+        const fileName = req.file.originalname;
+        console.log(fileName);
+        
+        await SingleFile.create({fileName: fileName, excelJson: await csv().fromFile(csvFilePath)});
         res.setHeader('Content-type', 'application/json');
         res.status(201).send('File Uploaded Successfully');
     } catch (error) {

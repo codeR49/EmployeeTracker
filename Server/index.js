@@ -5,10 +5,6 @@ const path = require('path');
 const cors = require('cors');
 const logger = require('morgan');
 const passport = require('passport');
-var XLSX = require('xlsx');
-// var workbook = XLSX.readFile('Sample-Spreadsheet-10-rows.xls');
-// var sheet_name_list = workbook.SheetNames;
-// console.log(XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[0]]))
 
 const fileRoutes = require('./routes/file-upload-routes');
 const userRoutes = require('./routes/users-routes');

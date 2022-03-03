@@ -28,6 +28,7 @@ export default function DataTable() {
     Axios.get(DevelopmentUrl + '/leaves')
       .then(res => {
         setDataRow(res.data);
+        
       })
       .catch(err => console.error("YO YOU GOT AN ERROR IN AXIOS ", err))
 
