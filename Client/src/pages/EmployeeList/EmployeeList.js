@@ -41,19 +41,38 @@ export default function DataTable() {
       sx={{
         height: 650,
         width: "100%",
+         boxShadow: 2,
+    
         '& .abc': {
           backgroundColor: 'rgb(202 216 217)',
           fontSize:"15px",
           fontWeight:"bold"
         },
+        '& .cold': {
+          
+          color: 'red',
+        },
+        '& .hot': {
+          height:'40px',
+          
+          color: 'blue',
+        },
+
       }}
-    > <DataGrid 
+    >
+       <DataGrid 
     rows={dataRow}
     columns={columns }
-    pageSize={10}
-    rowsPerPageOptions={[10]}
+    pageSize={100}
+    rowsPerPageOptions={[100]}
     checkboxSelection
     components={{ Toolbar: GridToolbar }}
+    getCellClassName={(params) => {
+      if (params.field === 'status') {
+        return params.value === 'Active' ? 'hot' : 'cold';
+      }
+     return ''
+    }}
     
   /></Box>
     </div>
