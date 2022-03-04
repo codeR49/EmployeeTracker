@@ -163,7 +163,7 @@ export default function TrackerForm() {
         style={{
           display: submitted ? '' : 'none',
         }}>
-        <h3 style={{color:"#4F8B0F"}}>Candidate {candidateName} Added Successfully !!</h3>
+        <h3 style={{color:"rgb(0, 111, 139)"}}>Candidate {candidateName} Added Successfully !!</h3>
       </div>
     );
   };
@@ -185,8 +185,8 @@ export default function TrackerForm() {
         <h3 className="newUserTitle">Add Employee Details</h3>
         <form className="newUserForm1" >
           <div className="newUserItem1" >
-            <label>Select Year and  Month <sup style={{ color: "red" }}>*</sup>&nbsp;&nbsp;</label>
-            <input type="date" id="myDate" placeholder=" select Date" required  onChange={onchangemonthyearhandler}/>
+            <label>Select Month and Year  <sup style={{ color: "red" }}>*</sup>&nbsp;&nbsp;</label>
+            <input type="month" id="myDate" placeholder=" select Date" required  onChange={onchangemonthyearhandler}/>
           </div>
         </form>
       </div>
