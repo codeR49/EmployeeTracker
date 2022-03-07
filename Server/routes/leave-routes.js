@@ -8,4 +8,6 @@ leaveRouter.route('/')
     .post(leaveController.createLeaves) //route to create a leave
     .delete(leaveController.deleteAllLeaves); //route to delete all leaves
 
+leaveRouter.delete('/alsid', leaveController.deleteLeaveById)
+
 module.exports = leaveRouter;

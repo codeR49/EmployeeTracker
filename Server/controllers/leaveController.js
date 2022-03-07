@@ -86,9 +86,19 @@ const deleteAllLeaves = (req, res, next) => {
         .catch((err) => next(err));
 }
 
+const deleteLeaveById = (req, res, next) => {
+    Leaves.findOneAndDelete({"alsID":"1111"})
+        .then(() => {
+            res.statusCode = 200;
+            res.setHeader('Content-Type', 'application/json');
+            res.send("Successfully deleted");
+        }, (err) => next(err))
+        .catch((err) => next(err));
+}
 
 module.exports = {
     getAllLeaves,
     createLeaves,
-    deleteAllLeaves
+    deleteAllLeaves,
+    deleteLeaveById
 };
