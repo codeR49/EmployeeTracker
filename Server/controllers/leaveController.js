@@ -87,7 +87,7 @@ const deleteAllLeaves = (req, res, next) => {
 }
 
 const deleteLeaveById = (req, res, next) => {
-    Leaves.findOneAndDelete({"alsID":"1111"})
+    Leaves.findOneAndDelete({"alsID":"hevf77"})
         .then(() => {
             res.statusCode = 200;
             res.setHeader('Content-Type', 'application/json');

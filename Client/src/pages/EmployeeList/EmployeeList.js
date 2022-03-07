@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { DataGrid ,GridToolbar,GridActionsCellItem} from '@mui/x-data-grid';
 import Box from '@mui/material/Box';
-import Axios from 'axios';
 import DevelopmentUrl from "../../data/api";
 import "./EmployeeList.css"
 import EditIcon from '@mui/icons-material/Edit';
@@ -52,14 +51,24 @@ export default function DataTable() {
   
   ];
 
-  const deleteUser =async ()=>{
-    await axios.delete(DevelopmentUrl +"/leaves/6215ec4b098e4d4344add22c")
-  }
+ 
 
+  const [status, setStatus] = useState();
 
+ const deleteUser = ()=>{
+    axios.delete(DevelopmentUrl + "/leaves/alsid")
+    .then(()=> {
+      
+      setStatus('Delete successful');
+      setDataRow()
+    })
+    .catch(err => console.error("YO YOU GOT AN ERROR IN AXIOS ", err))
+
+}
+  
   const [dataRow, setDataRow] = useState([]);
   useEffect(() => {
-    Axios.get(DevelopmentUrl + '/leaves')
+    axios.get(DevelopmentUrl + '/leaves')
       .then(res => {
         setDataRow(res.data);
      
@@ -71,7 +80,7 @@ export default function DataTable() {
   return (
     <div style={{ height: 650, width: '100%' }} className="userList">
      
-
+<h1>{status}</h1>
 <Box
       sx={{
         height: 650,
