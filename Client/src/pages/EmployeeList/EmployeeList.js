@@ -1,125 +1,142 @@
-import React, { useState, useEffect } from "react";
-import { DataGrid ,GridToolbar,GridActionsCellItem} from '@mui/x-data-grid';
+import React, { useState, useEffect, useMemo, useRef } from "react";
+import { DataGrid, GridToolbar, GridActionsCellItem } from '@mui/x-data-grid';
 import Box from '@mui/material/Box';
 import DevelopmentUrl from "../../data/api";
 import "./EmployeeList.css"
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/DeleteOutlined';
 import axios from "axios";
+import TrackerEditForm from "../TrackerEditForm/TrackerEditForm";
+import { Link } from "react-router-dom";
+
 
 
 export default function DataTable() {
   
- const columns = [
-  
-    { field: 'id', headerName: 'Sl.No', walsIDth: 20 , headerClassName: 'abc',},
-  
+  const column = [
+
+    { field: 'id', headerName: 'Sl.No', walsIDth: 20, headerClassName: 'abc', },
+    { field: 'alsID', headerName: 'ALS ID', walsIDth: 50, headerClassName: 'abc' },
     {
-      field: 'action',
+      field: 'actions',
+      type: 'actions',
       headerName: 'Actions',
       sortable: false,
-      walsIDth: 50 ,
+      walsIDth: 50,
       headerClassName: 'abc',
+      cellClassName: 'actions',
+      
       renderCell: () => {
         return (
           <>
-           <GridActionsCellItem
-                icon={<EditIcon />}
-                className="textPrimary"
-                color="primary"
-              />
-              <GridActionsCellItem
-                icon={<DeleteIcon />}
-                className="textPrimary"
-                color="primary"
-                onClick={deleteUser}
-              />
+         
+            <GridActionsCellItem
+            className="textPrimary"
+            color="primary"
+            icon={<EditIcon  />}
+            as={Link} to={'/updateemployee/622721a97ee9353c7cca5e89'}              
+          />
+            
+    
+            <GridActionsCellItem
+              icon={<DeleteIcon />}
+              className="textPrimary"
+              color="primary"
+              // onClick={() => user}
+                
+            />
           </>
         );
       },
     },
-    { field: 'alsID', headerName: 'ALS ID', walsIDth: 50 ,headerClassName: 'abc'},
-    { field: 'client', headerName: 'Client', width: 150 ,headerClassName: 'abc', editable:"true" },
-    { field: 'candidateName', headerName: 'Candidate name', width: 180,headerClassName: 'abc' },
-    { field: 'openingBalance', headerName: 'Opening Bal',  width: 120 ,headerClassName: 'abc'},
-    { field: 'leaveTaken', headerName: 'Leave Taken', width: 120 ,headerClassName: 'abc'},
-    { field: 'additionalSL', headerName: 'SL', width: 50 ,headerClassName: 'abc'},
-    { field: 'additionalEL', headerName: 'EL', width: 50 ,headerClassName: 'abc'},
-    { field: 'closingBalance', headerName: 'Closing Bal',  width: 150,headerClassName: 'abc' },
-    { field: 'lop', headerName: 'Lop',  width: 50 ,headerClassName: 'abc'},
-    { field: 'status', headerName: 'Status',  width: 150 ,headerClassName: 'abc'}
-  
+    { field: 'client', headerName: 'Client', width: 150, headerClassName: 'abc', editable: "true" },
+    { field: 'candidateName', headerName: 'Candidate name', width: 180, headerClassName: 'abc' },
+    { field: 'openingBalance', headerName: 'Opening Bal', width: 120, headerClassName: 'abc' },
+    { field: 'leaveTaken', headerName: 'Leave Taken', width: 120, headerClassName: 'abc' },
+    { field: 'additionalSL', headerName: 'SL', width: 50, headerClassName: 'abc' },
+    { field: 'additionalEL', headerName: 'EL', width: 50, headerClassName: 'abc' },
+    { field: 'closingBalance', headerName: 'Closing Bal', width: 150, headerClassName: 'abc' },
+    { field: 'lop', headerName: 'Lop', width: 50, headerClassName: 'abc' },
+    { field: 'status', headerName: 'Status', width: 150, headerClassName: 'abc' }
+
   ];
 
- 
+  const [status, setStatus] = useState([]);
 
-  const [status, setStatus] = useState();
+  const deleteUser = async () => {
+    await axios.delete(DevelopmentUrl + `/leaves?alsID=`)
+      .then((res) => {
+        
+        setStatus(deleteUser);
+      })
+      .catch(err => console.error("YO YOU GOT AN ERROR IN AXIOS ", err))
 
- const deleteUser = ()=>{
-    axios.delete(DevelopmentUrl + "/leaves/alsid")
-    .then(()=> {
-      
-      setStatus('Delete successful');
-      setDataRow()
-    })
-    .catch(err => console.error("YO YOU GOT AN ERROR IN AXIOS ", err))
-
-}
+  }
   
-  const [dataRow, setDataRow] = useState([]);
+  const [rows, setDataRow] = useState([]);
+  const id = rows.map((i)=> i._id);
+  console.log(id);
   useEffect(() => {
     axios.get(DevelopmentUrl + '/leaves')
       .then(res => {
         setDataRow(res.data);
-     
       })
       .catch(err => console.error("YO YOU GOT AN ERROR IN AXIOS ", err))
 
   }, [])
+  //console.log(dataRow[0].alsID);
+  // let user = () => {
+  //   dataRow.map(({alsID})=> {
+  //     console.log(alsID);
 
+  //   })
+  
+  // }
   return (
     <div style={{ height: 650, width: '100%' }} className="userList">
-     
-<h1>{status}</h1>
-<Box
-      sx={{
-        height: 650,
-        width: "100%",
-         boxShadow: 2,
-    
-        '& .abc': {
-          backgroundColor: 'rgb(202 216 217)',
-          fontSize:"15px",
-          fontWeight:"bold"
-        },
-        '& .cold': {
-          
-          color: 'red',
-        },
-        '& .hot': {
-          height:'40px',
-          
-          color: 'blue',
-        },
 
-      }}
-    >
-       <DataGrid 
-    rows={dataRow}
-    
-    columns={columns }
-    pageSize={100}
-    rowsPerPageOptions={[100]}
-    checkboxSelection
-    components={{ Toolbar: GridToolbar }}
-    getCellClassName={(params) => {
-      if (params.field === 'status') {
-        return params.value === 'Active' ? 'hot' : 'cold';
-      }
-     return ''
-    }}
-    
-  /></Box>
+      <h1>{status}</h1>
+      <Box
+        sx={{
+          height: 650,
+          width: "100%",
+          boxShadow: 2,
+
+          '& .abc': {
+            backgroundColor: 'rgb(202 216 217)',
+            fontSize: "15px",
+            fontWeight: "bold"
+          },
+          '& .cold': {
+
+            color: 'red',
+          },
+          '& .hot': {
+            height: '40px',
+
+            color: 'blue',
+          },
+
+        }}
+      >
+        <DataGrid
+          rows={rows}
+
+          columns={column}
+          pageSize={100}
+          rowsPerPageOptions={[100]}
+          checkboxSelection
+          components={{ Toolbar: GridToolbar }}
+          getCellClassName={(params) => {
+            if (params.field === 'status') {
+              return params.value === 'Active' ? 'hot' : 'cold';
+            }
+            return ''
+          }}
+         
+          
+        /></Box>
+       
     </div>
   );
 }

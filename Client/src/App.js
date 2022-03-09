@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import ExcelData from "./pages/ExcelData/ExcelData"
 import Trackeremp from "./pages/TrackerEmp/TrackerEmp";
 import EmployeeList from "./pages/EmployeeList/EmployeeList";
+import TrackerEditForm from "./pages/TrackerEditForm/TrackerEditForm";
 
 
 function App() {
@@ -34,7 +35,9 @@ function App() {
           <Route path="/exceldata">
             <ExcelData/>
           </Route>
-        
+          <Route path="/updateemployee/:leaveID">
+            <TrackerEditForm/>
+          </Route>
         </Switch>
       </div>
     </Router>

@@ -2,10 +2,11 @@ const Leaves = require('../models/leave');
 
 const getAllLeaves = (req, res, next) => {
     let rows = [];
-    let id, alsID, client, candidateName, openingBalance, closingBalance, lop, status, additionalSL, additionalEL, leaveTaken;
-    Leaves.find({}).select("-_id alsID client candidateName openingBalance leaveTaken additionalSL additionalEL closingBalance lop status")
+    let mongoId, id, alsID, client, candidateName, openingBalance, closingBalance, lop, status, additionalSL, additionalEL, leaveTaken;
+    Leaves.find({}).select("_id alsID client candidateName openingBalance leaveTaken additionalSL additionalEL closingBalance lop status")
         .then((leave) => {
             for (let i = 0; i < leave.length; i++) {
+                mongoId = leave[i]._id
                 id = i + 1;
                 alsID = leave[i].alsID;
                 client = leave[i].client;
@@ -17,6 +18,7 @@ const getAllLeaves = (req, res, next) => {
                 leaveTaken = leave[i].leaveTaken;
                 additionalSL = leave[i].additionalSL;
                 additionalEL = leave[i].additionalEL;
+
                 rows.push({
                     id: id,
                     alsID: alsID,
@@ -28,7 +30,8 @@ const getAllLeaves = (req, res, next) => {
                     additionalEL: additionalEL,
                     closingBalance: closingBalance,
                     lop: lop,
-                    status: status
+                    status: status,
+                    _id: mongoId
                 })
             }
 
@@ -86,8 +89,20 @@ const deleteAllLeaves = (req, res, next) => {
         .catch((err) => next(err));
 }
 
+const editLeaveById = (req, res, next) => {
+    Leaves.findByIdAndUpdate(req.params.leaveID, {
+        $set: req.body
+    }, { new: true })
+        .then((leave) => {
+            res.statusCode = 200;
+            res.setHeader('Content-Type', 'application/json');
+            res.json(leave);
+        }, (err) => next(err))
+        .catch((err) => next(err));
+}
+
 const deleteLeaveById = (req, res, next) => {
-    Leaves.findOneAndDelete({"alsID":"hevf77"})
+    Leaves.findOneAndDelete({ "alsID": req.params.alsID })
         .then(() => {
             res.statusCode = 200;
             res.setHeader('Content-Type', 'application/json');
@@ -100,5 +115,6 @@ module.exports = {
     getAllLeaves,
     createLeaves,
     deleteAllLeaves,
-    deleteLeaveById
+    deleteLeaveById,
+    editLeaveById
 };
