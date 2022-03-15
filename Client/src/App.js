@@ -4,42 +4,49 @@ import "./App.css";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import ExcelData from "./pages/ExcelData/ExcelData"
 import Trackeremp from "./pages/TrackerEmp/TrackerEmp";
 import EmployeeList from "./pages/EmployeeList/EmployeeList";
-import TrackerEditForm from "./pages/TrackerEditForm/TrackerEditForm";
+import Home from "./pages/home/Home";
+import Signup from "./pages/Signup/Signup";
+import Signin from "./pages/Signin/Signin";
+
 
 
 function App() {
   return (
     <>
     <Router>
-      <Topbar />
+      {/* <Topbar /> */}
       <div className="container">
-        <Sidebar />
+        {/* <Sidebar /> */}
        
-        <Switch>
+        
+      </div>
+      <Switch>
           {/* <Route exact path="/">
-            <Home />
+            <Home/>
+          </Route> */}
+          <Route exact path="/">
+            <Signin/>
+          </Route>
+          <Route exact path="/signup">
+            <Signup/>
+          </Route>
+         
+         
+         
+          {/* <Route path="/addnewemp">
+            <TrackerForm />
+            <Trackeremp/>
+          </Route> */}
+          {/* <Route path="/employeedetails">
+            <EmployeeList/>
+          </Route> */}
+          {/* <Route path="/exceldata">
+            <ExcelData/>
           </Route> */}
          
-         
-         
-          <Route path="/tracker">
-            {/* <TrackerForm /> */}
-            <Trackeremp/>
-          </Route>
-          <Route path="/employeedetails">
-            <EmployeeList/>
-          </Route>
-          <Route path="/exceldata">
-            <ExcelData/>
-          </Route>
-          <Route path="/updateemployee/:leaveID">
-            <TrackerEditForm/>
-          </Route>
         </Switch>
-      </div>
     </Router>
     </>
     

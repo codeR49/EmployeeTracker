@@ -2,12 +2,12 @@ import React from "react";
 import Paper from "@material-ui/core/Paper";
 import Tab from "@material-ui/core/Tab";
 import Tabs from "@material-ui/core/Tabs";
-import TrackerForm from "../Trackerform/Trackerform";
+import AddNewEmployee from "../AddNewEmployee/AddNewEmployee";
 import Box from '@mui/material/Box';
 import { TabContext } from '@mui/lab';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
-import  TrackerExcell  from "../TrackerExcell/TrackerExcell";
+import  UploadExcell  from "../UploadExcell/UploadExcell";
 
 export default function Trackeremp() {
   const [value, setValue] = React.useState('1');
@@ -22,17 +22,17 @@ export default function Trackeremp() {
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
           <TabList onChange={handleChange} aria-label="lab API tabs example">
             <Tab label=" Add Employee Details" value="1" />
-            <Tab label="Upload Excell Data" value="2" />
+            {/* <Tab label="Upload Excell Data" value="2" /> */}
            
           </TabList>
         </Box>
         <TabPanel value="1">
-        <TrackerForm/>
+        <AddNewEmployee/>
         </TabPanel>
-        <TabPanel value="2">  
+        {/* <TabPanel value="2">  
         
-        <TrackerExcell/>
-        </TabPanel>
+        <UploadExcell/>
+        </TabPanel> */}
         
       </TabContext>
     </Box>

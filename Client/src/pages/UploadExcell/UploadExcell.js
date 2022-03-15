@@ -11,7 +11,7 @@ import DevelopmentUrl from "../../data/api";
 import { Upload, Button, message } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 
-class TrackerExcell extends React.Component {
+class UploadExcell extends React.Component {
   state = {
     fileList: [],
     uploading: false,
@@ -200,5 +200,5 @@ class TrackerExcell extends React.Component {
 //     );
 //   }
 // }
-export default TrackerExcell;
+export default UploadExcell;
 //export default TrackerExcell;
