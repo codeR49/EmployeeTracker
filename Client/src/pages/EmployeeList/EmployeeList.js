@@ -6,7 +6,7 @@ import "./EmployeeList.css"
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/DeleteOutlined';
 import axios from "axios";
-import TrackerEditForm from "../TrackerEditForm/TrackerEditForm";
+
 import { Link } from "react-router-dom";
 
 
@@ -61,21 +61,10 @@ export default function DataTable() {
 
   ];
 
-  const [status, setStatus] = useState([]);
-
-  const deleteUser = async () => {
-    await axios.delete(DevelopmentUrl + `/leaves?alsID=`)
-      .then((res) => {
-        
-        setStatus(deleteUser);
-      })
-      .catch(err => console.error("YO YOU GOT AN ERROR IN AXIOS ", err))
-
-  }
+ 
   
   const [rows, setDataRow] = useState([]);
-  const id = rows.map((i)=> i._id);
-  console.log(id);
+
   useEffect(() => {
     axios.get(DevelopmentUrl + '/leaves')
       .then(res => {
@@ -84,18 +73,10 @@ export default function DataTable() {
       .catch(err => console.error("YO YOU GOT AN ERROR IN AXIOS ", err))
 
   }, [])
-  //console.log(dataRow[0].alsID);
-  // let user = () => {
-  //   dataRow.map(({alsID})=> {
-  //     console.log(alsID);
 
-  //   })
-  
-  // }
   return (
     <div style={{ height: 650, width: '100%' }} className="userList">
 
-      <h1>{status}</h1>
       <Box
         sx={{
           height: 650,

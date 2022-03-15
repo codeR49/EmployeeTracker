@@ -33,10 +33,10 @@ export default function Sidebar() {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Quick Menu</h3>
           <ul className="sidebarList">
-            <Link to="/tracker" className="link">
+            <Link to="/addnewemp" className="link">
               <li className="sidebarListItem">
                 <PermIdentity className="sidebarIcon" />
-                Employee Tracker
+                Add New Employee 
               </li>
             </Link>
             <Link to="/employeedetails" className="link">
@@ -46,12 +46,12 @@ export default function Sidebar() {
               </li>
             </Link>
 
-            <Link to="/exceldata" className="link">
+            {/* <Link to="/exceldata" className="link">
               <li className="sidebarListItem">
                 <Storefront className="sidebarIcon" />
                 Excel Data
               </li>
-            </Link>
+            </Link> */}
             
 
           </ul>
