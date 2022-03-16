@@ -26,7 +26,7 @@ function App() {
           {/* <Route exact path="/">
             <Home/>
           </Route> */}
-          <Route exact path="/">
+          <Route exact path="/sigin">
             <Signin/>
           </Route>
           <Route exact path="/signup">
@@ -39,9 +39,9 @@ function App() {
             <TrackerForm />
             <Trackeremp/>
           </Route> */}
-          {/* <Route path="/employeedetails">
+          <Route path="/employeedetails">
             <EmployeeList/>
-          </Route> */}
+          </Route>
           {/* <Route path="/exceldata">
             <ExcelData/>
           </Route> */}
