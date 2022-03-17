@@ -16,37 +16,38 @@ function App() {
   return (
     <>
     <Router>
-      {/* <Topbar /> */}
+      <Topbar />
       <div className="container">
-        {/* <Sidebar /> */}
-       
-        
-      </div>
+      
+            <Sidebar/>
+
       <Switch>
-          {/* <Route exact path="/">
-            <Home/>
-          </Route> */}
-          <Route exact path="/sigin">
+         
+      <Route exact path="/">
             <Signin/>
           </Route>
-          <Route exact path="/signup">
+
+          <Route  path="/signup">
             <Signup/>
           </Route>
+          
+          <Route  path="/dashboard">
+            <Home/>
+          </Route>
          
-         
-         
-          {/* <Route path="/addnewemp">
-            <TrackerForm />
+          <Route path="/addnewemp">
             <Trackeremp/>
-          </Route> */}
+          </Route>
+
           <Route path="/employeedetails">
             <EmployeeList/>
           </Route>
-          {/* <Route path="/exceldata">
-            <ExcelData/>
-          </Route> */}
+         
          
         </Switch>
+
+         
+      </div>
     </Router>
     </>
     
