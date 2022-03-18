@@ -16,6 +16,10 @@ var userSchema = new Schema({
     admin: {
         type: Boolean,
         default: false
+    },
+    reviewer: {
+        type: Boolean,
+        default: false 
     }
 }, {
     writeConcern: {
