@@ -39,7 +39,7 @@ export default function AdminSidebar() {
                 Add New Employee 
               </li>
             </Link> */}
-            <Link to="/employeedetails" className="link">
+            <Link to="/admin/emplyeedetails" className="link">
               <li className="sidebarListItem">
                 <PermIdentity className="sidebarIcon" />
                 Employee Details

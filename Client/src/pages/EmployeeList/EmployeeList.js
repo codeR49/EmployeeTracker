@@ -64,9 +64,14 @@ export default function DataTable() {
  
   
   const [rows, setDataRow] = useState([]);
-
+  const token = localStorage.getItem("token");
   useEffect(() => {
-    axios.get(DevelopmentUrl + '/leaves')
+    axios.get(DevelopmentUrl + '/leaves/getall', {
+      headers: {
+        "Content-Type": "text/plain",
+        "Authorization": `bearer ${token}`
+      }
+    })
       .then(res => {
         setDataRow(res.data);
       })
