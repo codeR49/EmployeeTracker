@@ -9,6 +9,7 @@ import EmployeeList from "./pages/EmployeeList/EmployeeList";
 import Home from "./pages/home/Home";
 import Signup from "./pages/Signup/Signup";
 import Signin from "./pages/Signin/Signin";
+import AdminSidebar from "./components/admin/adminsidebar";
 
 
 
@@ -16,34 +17,48 @@ function App() {
   return (
     <>
     <Router>
-      <Topbar />
+      {/* <Topbar /> */}
       <div className="container">
       
-            <Sidebar/>
+            
 
       <Switch>
          
       <Route exact path="/">
             <Signin/>
           </Route>
-
           <Route  path="/signup">
             <Signup/>
           </Route>
           
-          <Route  path="/dashboard">
+
+          <Route exact path="/dashboard">
+          <Sidebar/>
             <Home/>
+          
           </Route>
+
          
+         
+         
+  
           <Route path="/addnewemp">
+          <Sidebar/>
             <Trackeremp/>
+       
           </Route>
 
           <Route path="/employeedetails">
+          <Sidebar/>
             <EmployeeList/>
           </Route>
-         
-         
+          {/* <Route path="/exceldata">
+            <ExcelData/>
+          </Route> */}
+          <Route path="/adminsidebar">
+         <AdminSidebar/>
+            
+          </Route>
         </Switch>
 
          
