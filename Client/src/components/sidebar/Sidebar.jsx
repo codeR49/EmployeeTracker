@@ -10,10 +10,12 @@ import {
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { Link } from "react-router-dom";
+import Topbar from "../topbar/Topbar";
 
 export default function Sidebar() {
   return (
     <div className="sidebar">
+      <Topbar/>
       <div className="sidebarWrapper">
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Dashboard</h3>

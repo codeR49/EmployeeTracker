@@ -17,6 +17,12 @@ export default function Home() {
         <WidgetSm/>
         <WidgetLg/>
       </div>
+
+
+
+
+
+      
       
     </div>
   );

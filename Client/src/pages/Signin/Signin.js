@@ -8,6 +8,7 @@ import jwt_decode from "jwt-decode";
 
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
+import  Sidebar from "../../components/sidebar/Sidebar"
 
 const Signin = () => {
 
@@ -49,15 +50,14 @@ const Signin = () => {
         })
     }
     if (loginstatus === 200) {
-        // let isAdmin = jwt_decode(localStorage.getItem("token")).admin;
-        // localStorage.setItem("admin", isAdmin);
+        let isAdmin = jwt_decode(localStorage.getItem("token")).admin;
+        localStorage.setItem("admin", isAdmin);
        
         message = 
         <Switch>
-            {/* {!isAdmin ? <Redirect to={Routes.DashboardOverview.path} /> : <Redirect to={Routes.DashboardOverviewAdmin.path} />} */}
-            <Redirect to='/dashboard'>
+            {!isAdmin ? <Redirect to='/dashboard'/>
+      : <Redirect to='/adminsidebar'/>}
             
-          </Redirect>
        
         </Switch>
 
@@ -65,7 +65,7 @@ const Signin = () => {
 
     }
     return (
-        <div>
+        <div style={{margin:'auto'}}>
 
 <form onSubmit={submithandler}>
             <Grid>
