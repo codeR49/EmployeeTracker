@@ -9,6 +9,7 @@ import EmployeeList from "./pages/EmployeeList/EmployeeList";
 import Home from "./pages/home/Home";
 import Signup from "./pages/Signup/Signup";
 import Signin from "./pages/Signin/Signin";
+import AdminSidebar from "./components/admin/adminsidebar";
 
 
 
@@ -18,35 +19,50 @@ function App() {
     <Router>
       {/* <Topbar /> */}
       <div className="container">
-        {/* <Sidebar /> */}
-       
-        
-      </div>
+      
+            
+
       <Switch>
-          {/* <Route exact path="/">
-            <Home/>
-          </Route> */}
-          <Route exact path="/sigin">
+         
+      <Route exact path="/">
             <Signin/>
           </Route>
-          <Route exact path="/signup">
+          <Route  path="/signup">
             <Signup/>
           </Route>
+          
+
+          <Route exact path="/dashboard">
+          <Sidebar/>
+            <Home/>
+          
+          </Route>
+
          
          
          
-          {/* <Route path="/addnewemp">
-            <TrackerForm />
+  
+          <Route path="/addnewemp">
+          <Sidebar/>
             <Trackeremp/>
-          </Route> */}
+       
+          </Route>
+
           <Route path="/employeedetails">
+          <Sidebar/>
             <EmployeeList/>
           </Route>
           {/* <Route path="/exceldata">
             <ExcelData/>
           </Route> */}
-         
+          <Route path="/adminsidebar">
+         <AdminSidebar/>
+            
+          </Route>
         </Switch>
+
+         
+      </div>
     </Router>
     </>
     

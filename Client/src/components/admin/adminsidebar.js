@@ -1,26 +1,20 @@
-import "./sidebar.css";
+import "./adminsidebar.css";
 import {
   LineStyle,
   Storefront,
   PermIdentity,
-  WorkOutline,
-  Timeline,Report
 
 } from "@material-ui/icons";
-import PersonAddIcon from '@mui/icons-material/PersonAdd';
-import LogoutIcon from '@mui/icons-material/Logout';
 import { Link } from "react-router-dom";
-import Topbar from "../topbar/Topbar";
 
-export default function Sidebar() {
+export default function AdminSidebar() {
   return (
     <div className="sidebar">
-      <Topbar/>
       <div className="sidebarWrapper">
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Dashboard</h3>
           <ul className="sidebarList">
-            <Link to="/dashboard" className="link">
+            <Link to="/" className="link">
               <li className="sidebarListItem active">
                 <LineStyle className="sidebarIcon" />
                 Home
@@ -39,12 +33,12 @@ export default function Sidebar() {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Quick Menu</h3>
           <ul className="sidebarList">
-            <Link to="/addnewemp" className="link">
+            {/* <Link to="/addnewemp" className="link">
               <li className="sidebarListItem">
-                <PersonAddIcon className="sidebarIcon" />
+                <PermIdentity className="sidebarIcon" />
                 Add New Employee 
               </li>
-            </Link>
+            </Link> */}
             <Link to="/employeedetails" className="link">
               <li className="sidebarListItem">
                 <PermIdentity className="sidebarIcon" />
@@ -58,23 +52,33 @@ export default function Sidebar() {
                 Excel Data
               </li>
             </Link> */}
-            
+             <Link to="/" className="link">
+              <li className="sidebarListItem">
+                <PermIdentity className="sidebarIcon" />
+                Logout
+              </li>
+            </Link>
 
           </ul>
         </div>
 
-        <div className="sidebarMenu">
-          
+        {/* <div className="sidebarMenu">
+          <h3 className="sidebarTitle">Staff</h3>
           <ul className="sidebarList">
-           <Link to ="/" className="link">
-           
-           <li className="sidebarListItem">
-              <LogoutIcon className="sidebarIcon" />
-              Log out
+            <li className="sidebarListItem">
+              <WorkOutline className="sidebarIcon" />
+              Manage
             </li>
-           </Link>
+            <li className="sidebarListItem">
+              <Timeline className="sidebarIcon" />
+              Analytics
+            </li>
+            <li className="sidebarListItem">
+              <Report className="sidebarIcon" />
+              Reports
+            </li>
           </ul>
-        </div>
+        </div> */}
       </div>
     </div>
   );

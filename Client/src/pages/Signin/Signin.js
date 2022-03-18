@@ -8,6 +8,8 @@ import jwt_decode from "jwt-decode";
 
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
+import  Sidebar from "../../components/sidebar/Sidebar"
+
 const Signin = () => {
 
     const paperStyle = { padding: 20, height: '60vh', width: 350, margin: "100px auto" }
@@ -53,10 +55,9 @@ const Signin = () => {
        
         message = 
         <Switch>
-            {/* {!isAdmin ? <Redirect to={Routes.DashboardOverview.path} /> : <Redirect to={Routes.DashboardOverviewAdmin.path} />} */}
-            <Redirect to='/employeedetails'>
-           
-          </Redirect>
+            {!isAdmin ? <Redirect to='/dashboard'/>
+      : <Redirect to='/adminsidebar'/>}
+            
        
         </Switch>
 
@@ -64,7 +65,9 @@ const Signin = () => {
 
     }
     return (
-        <form onSubmit={submithandler}>
+        <div style={{margin:'auto'}}>
+
+<form onSubmit={submithandler}>
             <Grid>
             <Paper elevation={10} style={paperStyle}>
                 <Grid align='center'>
@@ -97,6 +100,7 @@ const Signin = () => {
             </Paper>
         </Grid>
         </form>
+            </div>
         
     )
 }

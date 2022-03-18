@@ -74,7 +74,8 @@ function Signup() {
         return <h4></h4>;
     }
     return (
-       <form onSubmit={submitHandler}>
+       <div style={{margin:"auto"}}>
+           <form onSubmit={submitHandler}>
             <Grid >
             <Paper elevation={10} style={paperStyle}>
                 <Grid align='center'>
@@ -98,7 +99,7 @@ function Signup() {
                  /> */}
                 <Button type='submit' color='primary' variant="contained" style={btnstyle} fullWidth >Sign up</Button>
                 <Typography >
-                    <Link href="#" >
+                    <Link to="" >
                         Forgot password ?
                     </Link>
                 </Typography>
@@ -111,6 +112,7 @@ function Signup() {
             </Paper>
         </Grid>
        </form>
+       </div>
     )
 }
 
