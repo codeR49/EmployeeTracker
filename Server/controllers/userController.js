@@ -38,7 +38,7 @@ const loginUser = (req, res) => {
   var token = authenticate.getToken({
     _id: req.user._id,
     // name: req.user.name,
-     admin: req.user.admin,
+    admin: req.user.admin
     // username: req.user.username,
     // email: req.user.email
   });

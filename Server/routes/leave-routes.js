@@ -8,7 +8,7 @@ leaveRouter.route('/')
     .post(leaveController.createLeaves) //route to create a leave
     .delete(leaveController.deleteAllLeaves); //route to delete all leaves
 
-leaveRouter.get('/getall', authenticate.verifyUser, authenticate.verifyAdmin, leaveController.getAllLeaves)
+leaveRouter.get('/getall', authenticate.verifyUser, leaveController.getAllLeaves)
 leaveRouter.put('/:leaveID', leaveController.editLeaveById)
 
 leaveRouter.delete('/:alsID', leaveController.deleteLeaveById)

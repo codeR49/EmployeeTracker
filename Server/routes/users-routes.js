@@ -11,6 +11,7 @@ userRouter.get('/', authenticate.verifyUser, authenticate.verifyAdmin, userContr
 userRouter.post('/signup', userController.registerUser);
 /* Login user */
 userRouter.post('/login', passport.authenticate('local'), userController.loginUser);
+
 /* Edit user details*/
 userRouter.put('/edit/:userId', authenticate.verifyUser, userController.editUser);
 
