@@ -9,6 +9,9 @@ leaveRouter.route('/')
     .delete(leaveController.deleteAllLeaves); //route to delete all leaves
 
 leaveRouter.get('/getall', authenticate.verifyUser, leaveController.getAllLeaves)
+
+leaveRouter.get('/countemployees', leaveController.countEmployees);
+
 leaveRouter.put('/:leaveID', leaveController.editLeaveById)
 
 leaveRouter.put('/review/:reviewID', authenticate.verifyUser, authenticate.verifyAdmin, leaveController.updateReviewById)

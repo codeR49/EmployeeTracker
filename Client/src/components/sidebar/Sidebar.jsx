@@ -7,6 +7,7 @@ import {
   Timeline,Report
 
 } from "@material-ui/icons";
+import SummarizeIcon from '@mui/icons-material/Summarize';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { Link } from "react-router-dom";
@@ -52,6 +53,13 @@ export default function Sidebar() {
               </li>
             </Link>
 
+
+            <Link to="/report" className="link">
+              <li className="sidebarListItem">
+                <SummarizeIcon className="sidebarIcon" />
+               Report
+              </li>
+            </Link>
             {/* <Link to="/exceldata" className="link">
               <li className="sidebarListItem">
                 <Storefront className="sidebarIcon" />

@@ -2,8 +2,8 @@ const Leaves = require('../models/leave');
 
 const getAllLeaves = (req, res, next) => {
     let rows = [];
-    let mongoId, id, alsID, client, candidateName, openingBalance, closingBalance, lop, status, additionalSL, additionalEL, leaveTaken;
-    Leaves.find({}).select("_id alsID client candidateName openingBalance leaveTaken additionalSL additionalEL closingBalance lop status")
+    let review, mongoId, id, alsID, client, candidateName, openingBalance, closingBalance, lop, status, additionalSL, additionalEL, leaveTaken;
+    Leaves.find({}).select("_id alsID client candidateName openingBalance leaveTaken additionalSL additionalEL closingBalance lop status review")
         .then((leave) => {
             for (let i = 0; i < leave.length; i++) {
                 mongoId = leave[i]._id
@@ -18,6 +18,7 @@ const getAllLeaves = (req, res, next) => {
                 leaveTaken = leave[i].leaveTaken;
                 additionalSL = leave[i].additionalSL;
                 additionalEL = leave[i].additionalEL;
+                review = leave[i].review;
 
                 rows.push({
                     id: id,
@@ -31,7 +32,8 @@ const getAllLeaves = (req, res, next) => {
                     closingBalance: closingBalance,
                     lop: lop,
                     status: status,
-                    _id: mongoId
+                    _id: mongoId,
+                    review: review
                 })
             }
 
@@ -112,7 +114,7 @@ const deleteLeaveById = (req, res, next) => {
 }
 
 const updateReviewById = (req, res, next) => {
-    Leaves.findByIdAndUpdate(req.params.reviewID, { $set: req.body.review}, { new: true })
+    Leaves.findByIdAndUpdate(req.params.reviewID, { $set: { review: req.body.review } }, { new: true })
         .then((review) => {
             res.statusCode = 200;
             res.setHeader('Content-Type', 'application/json');
@@ -121,11 +123,38 @@ const updateReviewById = (req, res, next) => {
         .catch((err) => next(err));
 }
 
+const countEmployees = async (req, res) => {
+    const countTotalEmployees = await Leaves.countDocuments({});
+    const countCurrentMonthEmployees = await Leaves.find({
+        "$expr": {
+            "$and": [
+                { "$eq": [{ "$year": "$dateOfJoining" }, 2022] },
+                { "$eq": [{ "$month": "$dateOfJoining" }, 3] }
+            ]
+        }
+    }).countDocuments({});
+    const countTotalInactiveEmployees = await Leaves.find({ status: "Inactive" }).countDocuments({});
+
+    const activeEmployeesName = await Leaves.find({ status: "Active" }, {_id: 0, candidateName: 1})
+
+
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'application/json');
+    res.json({
+        "totalEmployees": countTotalEmployees,
+        "currentMonth":  countCurrentMonthEmployees,
+        "countTotalInactive": countTotalInactiveEmployees,
+        activeEmployeesName
+    });
+
+
+}
 module.exports = {
     getAllLeaves,
     createLeaves,
     deleteAllLeaves,
     deleteLeaveById,
     editLeaveById,
-    updateReviewById
+    updateReviewById,
+    countEmployees
 };
