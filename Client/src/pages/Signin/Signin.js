@@ -55,11 +55,9 @@ const Signin = () => {
        
         message = 
         <Switch>
-            {!isAdmin ? <Redirect to='/dashboard'/>
-      : <Redirect to='/adminsidebar'/>}
+            {!isAdmin ? <Redirect to='/dashboard'/>:<Redirect to='/adminsidebar'/>}
             
-       
-        </Switch>
+       </Switch>
 
         return message;
 
