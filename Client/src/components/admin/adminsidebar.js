@@ -6,20 +6,23 @@ import {
 
 } from "@material-ui/icons";
 import { Link } from "react-router-dom";
+import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
+import Topbar from "../topbar/Topbar";
 
 export default function AdminSidebar() {
   return (
     <div className="sidebar">
+      <Topbar/>
       <div className="sidebarWrapper">
         <div className="sidebarMenu">
-          <h3 className="sidebarTitle">Dashboard</h3>
+          <h3 className="sidebarTitle">Admin Dashboard</h3>
           <ul className="sidebarList">
-            <Link to="/" className="link">
+            {/* <Link to="/" className="link">
               <li className="sidebarListItem active">
                 <LineStyle className="sidebarIcon" />
                 Home
               </li>
-            </Link>
+            </Link> */}
             {/* <li className="sidebarListItem">
               <Timeline className="sidebarIcon" />
               Analytics
@@ -42,7 +45,7 @@ export default function AdminSidebar() {
             <Link to="/admin/emplyeedetails" className="link">
               <li className="sidebarListItem">
                 <PermIdentity className="sidebarIcon" />
-                Employee Details
+                Employee Review
               </li>
             </Link>
 
@@ -54,7 +57,7 @@ export default function AdminSidebar() {
             </Link> */}
              <Link to="/" className="link">
               <li className="sidebarListItem">
-                <PermIdentity className="sidebarIcon" />
+                <LogoutOutlinedIcon className="sidebarIcon" />
                 Logout
               </li>
             </Link>
