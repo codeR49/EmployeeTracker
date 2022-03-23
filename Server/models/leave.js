@@ -10,6 +10,10 @@ var leaveSchema = new Schema({
         enum: ["Active", "Inactive"],
         required: true
     },
+    review: {
+        type: String,
+        default: 'In Review'
+    },
     alsID: {
         type: String,
         required: true,

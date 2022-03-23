@@ -111,10 +111,21 @@ const deleteLeaveById = (req, res, next) => {
         .catch((err) => next(err));
 }
 
+const updateReviewById = (req, res, next) => {
+    Leaves.findByIdAndUpdate(req.params.reviewID, { $set: req.body.review}, { new: true })
+        .then((review) => {
+            res.statusCode = 200;
+            res.setHeader('Content-Type', 'application/json');
+            res.send("Successfully Updated");
+        }, (err) => next(err))
+        .catch((err) => next(err));
+}
+
 module.exports = {
     getAllLeaves,
     createLeaves,
     deleteAllLeaves,
     deleteLeaveById,
-    editLeaveById
+    editLeaveById,
+    updateReviewById
 };

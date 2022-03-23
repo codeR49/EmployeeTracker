@@ -11,6 +11,8 @@ leaveRouter.route('/')
 leaveRouter.get('/getall', authenticate.verifyUser, leaveController.getAllLeaves)
 leaveRouter.put('/:leaveID', leaveController.editLeaveById)
 
+leaveRouter.put('/review/:reviewID', authenticate.verifyUser, authenticate.verifyAdmin, leaveController.updateReviewById)
+
 leaveRouter.delete('/:alsID', leaveController.deleteLeaveById)
 
 module.exports = leaveRouter;
