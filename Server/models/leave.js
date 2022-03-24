@@ -36,14 +36,14 @@ var leaveSchema = new Schema({
         trim: true
     },
     dateOfJoining: {
-        type: String,
+        type: Date,
         required: true
     },
     dateOfC: {
-        type: String
+        type: Date
     },
     lastWorkingDate: {
-        type: String
+        type: Date
     },
     probationPeriod: {
         type: String,

@@ -6,6 +6,7 @@ import { ArrowDownward, ArrowUpward } from "@material-ui/icons";
 
 export default function FeaturedInfo() {
 
+  const [currentDay, setCurrentDay] = useState('');
   const [totalEmployee, setTotalEmployee] = useState(''); 
   const [currentMonth, setCurrentMonth] = useState(''); 
   const [countTotalInactive, setCountTotalInactive] = useState('');
@@ -13,6 +14,7 @@ export default function FeaturedInfo() {
   useEffect(() => {
     axios.get(DevelopmentUrl + '/leaves/countemployees')
       .then(res => {
+        setCurrentDay(res.data.currentDay);
         setTotalEmployee(res.data.totalEmployees);
         setCurrentMonth(res.data.currentMonth);
         setCountTotalInactive(res.data.countTotalInactive);
@@ -27,9 +29,12 @@ export default function FeaturedInfo() {
         <span className="featuredTitle" style={{color:"darkblue"}}>Total Employees</span>
         <div className="featuredMoneyContainer">
           <span className="featuredMoney">{totalEmployee}</span>
-          {/* <span className="featuredMoneyRate">
-            -11.4 <ArrowDownward  className="featuredIcon negative"/>
-          </span> */}
+          <span className="featuredMoneyRate" style={{marginLeft:"140px" ,color:"gray",borderBottom: "1px solid red"}}>
+            {currentDay}
+            
+          </span>
+         
+          
         </div>
         {/* <span className="featuredSub">Compared to last month</span> */}
       </div>
@@ -40,9 +45,9 @@ export default function FeaturedInfo() {
         <span className="featuredTitle" style={{color:"darkblue"}}>Total Employee Added last month</span>
         <div className="featuredMoneyContainer">
           <span className="featuredMoney">{currentMonth}</span>
-          {/* <span className="featuredMoneyRate">
-            -1.4 <ArrowDownward className="featuredIcon negative"/>
-          </span> */}
+          <span className="featuredMoneyRate" style={{marginLeft:"140px" ,color:"gray",borderBottom: "1px solid red"}}>
+            {currentDay}
+          </span>
         </div>
         {/* <span className="featuredSub">Employee of last month</span> */}
       </div>
@@ -53,9 +58,9 @@ export default function FeaturedInfo() {
         <span className="featuredTitle" style={{color:"darkblue"}}>Total Inactive Employees</span>
         <div className="featuredMoneyContainer">
           <span className="featuredMoney" style={{color:"red"}}>{countTotalInactive}</span>
-          {/* <span className="featuredMoneyRate">
-            +2.4 <ArrowUpward className="featuredIcon"/>
-          </span> */}
+          <span className="featuredMoneyRate" style={{marginLeft:"140px" ,color:"gray" ,borderBottom: "1px solid red"}}>
+            {currentDay}
+          </span>
         </div>
         {/* <span className="featuredSub">Compared to last month</span> */}
       </div>

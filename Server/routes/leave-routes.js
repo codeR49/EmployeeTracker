@@ -12,7 +12,7 @@ leaveRouter.get('/getall', authenticate.verifyUser, leaveController.getAllLeaves
 
 leaveRouter.get('/countemployees', leaveController.countEmployees);
 
-leaveRouter.get('/activeemployees', leaveController.activeEmployee);
+leaveRouter.get('/inactiveemployees', leaveController.inactiveEmployee);
 
 leaveRouter.put('/:leaveID', leaveController.editLeaveById)
 

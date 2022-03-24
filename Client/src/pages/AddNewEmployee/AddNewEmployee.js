@@ -132,7 +132,7 @@ export default function AddNewEmployee() {
       lop: lop
 
     };
-    if (currentMonthYear === '' || status === '' || alsID === '' || client==="" || clientLob==="" ||
+    if ( status === '' || alsID === '' || client==="" || clientLob==="" ||
     candidateName==="" || dateOfJoining==="" || probationPeriod==="" || basic==="" || grossSalary ==="" ||
     openingBalance==="" ||  leaveTaken==="" ||  additionalSL==="" ||  additionalEL==="" ||  closingBalance==="" || 
     lop==="" ) {

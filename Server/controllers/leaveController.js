@@ -1,5 +1,13 @@
 const Leaves = require('../models/leave');
 
+const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+let now = new Date();
+let day = days[ now.getDay() ];
+let month = months[ now.getMonth() ];   
+let date = now.getDate();
+const currentDay = `${day} ${month} ${date}`
+
 const getAllLeaves = (req, res, next) => {
     let rows = [];
     let review, mongoId, id, alsID, client, candidateName, openingBalance, closingBalance, lop, status, additionalSL, additionalEL, leaveTaken;
@@ -129,7 +137,7 @@ const countEmployees = async (req, res) => {
         "$expr": {
             "$and": [
                 { "$eq": [{ "$year": "$dateOfJoining" }, 2022] },
-                { "$eq": [{ "$month": "$dateOfJoining" }, 3] }
+                { "$eq": [{ "$month": "$dateOfJoining" }, 2] }
             ]
         }
     }).countDocuments({});
@@ -139,6 +147,7 @@ const countEmployees = async (req, res) => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'application/json');
     res.json({
+        "currentDay": currentDay,
         "totalEmployees": countTotalEmployees,
         "currentMonth":  countCurrentMonthEmployees,
         "countTotalInactive": countTotalInactiveEmployees,
@@ -147,14 +156,16 @@ const countEmployees = async (req, res) => {
 
 }
 
-const activeEmployee = async (req, res) => {
-    const activeEmployeesName = await Leaves.find({ status: "Inactive" }, {_id: 0, candidateName: 1, alsID: 1, probationPeriod: 1})
-
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'application/json');
-    res.json({
-        activeEmployeesName
-    });
+const inactiveEmployee = async (req, res) => {
+    await Leaves.find({ status: "Inactive" }, {_id: 0, candidateName: 1, alsID: 1, probationPeriod: 1})
+    .then((inactive) => {
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/json');
+        res.json({
+            inactive
+        });
+    }, (err) => next(err))
+    .catch((err) => next(err));
 }
 module.exports = {
     getAllLeaves,
@@ -164,5 +175,5 @@ module.exports = {
     editLeaveById,
     updateReviewById,
     countEmployees,
-    activeEmployee
+    inactiveEmployee
 };

@@ -6,11 +6,11 @@ export default function WidgetLg() {
   const [activeEmployeesName, setActiveEmployeesName] = useState([]);
 
   useEffect(() => {
-    axios.get(DevelopmentUrl + '/leaves/activeemployees')
+    axios.get(DevelopmentUrl + '/leaves/inactiveemployees')
       .then(res => {
-        setActiveEmployeesName(res.data.activeEmployeesName);
+        setActiveEmployeesName(res.data.inactive);
         
-        console.log(res.data);
+        // console.log(res.data);
       })
       .catch(err => console.error("YO YOU GOT AN ERROR IN AXIOS ", err))
 
