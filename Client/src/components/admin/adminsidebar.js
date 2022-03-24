@@ -5,6 +5,7 @@ import {
   PermIdentity,
 
 } from "@material-ui/icons";
+import SummarizeIcon from '@mui/icons-material/Summarize';
 import { Link } from "react-router-dom";
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 import Topbar from "../topbar/Topbar";
@@ -17,12 +18,12 @@ export default function AdminSidebar() {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Admin Dashboard</h3>
           <ul className="sidebarList">
-            {/* <Link to="/" className="link">
+            <Link to="/admin/dashboard" className="link">
               <li className="sidebarListItem active">
                 <LineStyle className="sidebarIcon" />
                 Home
               </li>
-            </Link> */}
+            </Link>
             {/* <li className="sidebarListItem">
               <Timeline className="sidebarIcon" />
               Analytics
@@ -48,6 +49,15 @@ export default function AdminSidebar() {
                 Employee Review
               </li>
             </Link>
+
+
+            <Link to="/admin/report" className="link">
+              <li className="sidebarListItem">
+                <SummarizeIcon className="sidebarIcon" />
+               Report
+              </li>
+            </Link>
+
 
             {/* <Link to="/exceldata" className="link">
               <li className="sidebarListItem">

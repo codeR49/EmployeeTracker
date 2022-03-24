@@ -77,8 +77,8 @@ export default function DataTable() {
           rows={rows}
 
           columns={column}
-          pageSize={100}
-          rowsPerPageOptions={[100]}
+          pageSize={10}
+          rowsPerPageOptions={[10]}
           checkboxSelection
           components={{ Toolbar: GridToolbar }}
           getCellClassName={(params) => {

@@ -2,8 +2,8 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var leaveSchema = new Schema({
     currentMonthYear: {
-        type: String,
-        required: true
+        type: String
+        // required: true
     },
     status: {
         type: String,

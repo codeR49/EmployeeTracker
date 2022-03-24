@@ -98,32 +98,24 @@ export default function ReviewEmployee() {
     <div style={{ height: 650, width: '100%' }} className="userList">
 
       <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>Review</DialogTitle>
+        <DialogTitle>Review Comments</DialogTitle>
         <DialogContent>
-         
+          <DialogContentText>
+             Please Write  your Valuable Comments For Review here. 
+          </DialogContentText>
           <TextField
             autoFocus
             margin="dense"
-            id="candidateName"
-            label="Candidate Name"
+            id="name"
+            label="Review"
             type="text"
             fullWidth
             variant="standard"
           />
-            <TextField 
-              autoFocus
-              margin="dense"
-        
-              label="Your Review"
-              type="text"
-              fullWidth
-              variant="standard"
-            
-            />
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={handleClose}>Send</Button>
+          <Button onClick={handleClose}>Approve</Button>
         </DialogActions>
       </Dialog>
       <Box

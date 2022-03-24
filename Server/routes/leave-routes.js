@@ -12,6 +12,8 @@ leaveRouter.get('/getall', authenticate.verifyUser, leaveController.getAllLeaves
 
 leaveRouter.get('/countemployees', leaveController.countEmployees);
 
+leaveRouter.get('/activeemployees', leaveController.activeEmployee);
+
 leaveRouter.put('/:leaveID', leaveController.editLeaveById)
 
 leaveRouter.put('/review/:reviewID', authenticate.verifyUser, authenticate.verifyAdmin, leaveController.updateReviewById)

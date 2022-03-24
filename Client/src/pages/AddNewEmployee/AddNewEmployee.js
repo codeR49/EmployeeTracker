@@ -182,13 +182,13 @@ export default function AddNewEmployee() {
   return (
     <div className="newUser">
       <div style={{ display: "flex" }}>
-        <h3 className="newUserTitle">Add Employee Details</h3>
-        <form className="newUserForm1" >
+        <h3 className="newUserTitle" style={{color:"darkblue"}}>Add Employee Details</h3>
+        {/* <form className="newUserForm1" >
           <div className="newUserItem1" >
             <label>Select Month and Year  <sup style={{ color: "red" }}>*</sup>&nbsp;&nbsp;</label>
             <input type="month" id="myDate" placeholder=" select Date" required  onChange={onchangemonthyearhandler}/>
           </div>
-        </form>
+        </form> */}
       </div>
 
       <form className="newUserForm">
@@ -282,7 +282,7 @@ export default function AddNewEmployee() {
           <input type="text" placeholder="Lop" required onChange={onchangelophandler}/>
         </div>
 
-        <button type="submit" className="newUserButton" onClick={submithandler}>Create</button>
+        <button type="submit" className="newUserButton" onClick={submithandler}>Submit For Review</button>
      
    
       </form>

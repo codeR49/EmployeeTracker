@@ -11,7 +11,8 @@ import Signup from "./pages/Signup/Signup";
 import Signin from "./pages/Signin/Signin";
 import AdminSidebar from "./components/admin/adminsidebar";
 import ReviewEmployee from "./pages/Admin/ReviewEmployee/ReviewEmployee";
-
+import Report from "./pages/Report/Report"
+import AdminReport from "./pages/Admin/ReviewEmployee/AdminReport/AdminReport"
 
 
 function App() {
@@ -48,6 +49,12 @@ function App() {
               <Trackeremp />
 
             </Route>
+            
+            <Route path="/report">
+              <Sidebar />
+              <Report />
+
+            </Route>
 
             <Route path="/employeedetails">
               <Sidebar />
@@ -58,16 +65,21 @@ function App() {
             {/* for admin Route */}
 
 
-            <Route path="/adminsidebar">
+            <Route path="/admin/dashboard">
               <AdminSidebar />
-
+              <Home />
             </Route>
             <Route path="/admin/emplyeedetails">
               <AdminSidebar />
               <ReviewEmployee />
             </Route>
+           
           </Switch>
+          <Route path="/admin/report">
+          <AdminSidebar />
+              <AdminReport />
 
+            </Route>
 
         </div>
       </Router>

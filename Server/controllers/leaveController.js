@@ -135,8 +135,6 @@ const countEmployees = async (req, res) => {
     }).countDocuments({});
     const countTotalInactiveEmployees = await Leaves.find({ status: "Inactive" }).countDocuments({});
 
-    const activeEmployeesName = await Leaves.find({ status: "Active" }, {_id: 0, candidateName: 1})
-
 
     res.statusCode = 200;
     res.setHeader('Content-Type', 'application/json');
@@ -144,10 +142,19 @@ const countEmployees = async (req, res) => {
         "totalEmployees": countTotalEmployees,
         "currentMonth":  countCurrentMonthEmployees,
         "countTotalInactive": countTotalInactiveEmployees,
-        activeEmployeesName
     });
 
 
+}
+
+const activeEmployee = async (req, res) => {
+    const activeEmployeesName = await Leaves.find({ status: "Inactive" }, {_id: 0, candidateName: 1, alsID: 1, probationPeriod: 1})
+
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'application/json');
+    res.json({
+        activeEmployeesName
+    });
 }
 module.exports = {
     getAllLeaves,
@@ -156,5 +163,6 @@ module.exports = {
     deleteLeaveById,
     editLeaveById,
     updateReviewById,
-    countEmployees
+    countEmployees,
+    activeEmployee
 };

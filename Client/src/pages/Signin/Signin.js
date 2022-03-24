@@ -55,7 +55,7 @@ const Signin = () => {
        
         message = 
         <Switch>
-            {!isAdmin ? <Redirect to='/dashboard'/>:<Redirect to='/adminsidebar'/>}
+            {!isAdmin ? <Redirect to='/dashboard'/>:<Redirect to='/admin/dashboard'/>}
             
        </Switch>
 
@@ -90,11 +90,11 @@ const Signin = () => {
                         Forgot password ?
                     </Link>
                 </Typography>
-                <Typography > Not registered?
+                {/* <Typography > Not registered?
                     <Link href="/signup" >
                         Create account
                     </Link>
-                </Typography>
+                </Typography> */}
             </Paper>
         </Grid>
         </form>
