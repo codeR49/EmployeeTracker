@@ -15,7 +15,7 @@ export default function DataTable() {
   
   const column = [
 
-    { field: 'id', headerName: 'Sl.No', walsIDth: 20, headerClassName: 'abc', },
+    { field: 'id', headerName: 'Sl.No', walsIDth: 20, headerClassName: 'abc' },
     { field: 'review', headerName: 'Review Status', width: 150, headerClassName: 'abc' },
     { field: 'alsID', headerName: 'ALS ID', walsIDth: 50, headerClassName: 'abc' },
     { field: 'client', headerName: 'Client', width: 150, headerClassName: 'abc', editable: "true" },
