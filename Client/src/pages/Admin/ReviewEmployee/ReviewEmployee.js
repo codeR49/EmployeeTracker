@@ -26,8 +26,9 @@ export default function ReviewEmployee() {
     
   
   const column = [
+    
 
-    { field: 'id', headerName: 'Sl.No', walsIDth: 20, headerClassName: 'abc', },
+    { field: 'id', headerName: 'Sl.No', walsIDth: 20, headerClassName: 'abc' },
     {
         field: 'actions',
         type: 'actions',

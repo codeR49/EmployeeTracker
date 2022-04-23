@@ -7,7 +7,11 @@ import Box from '@mui/material/Box';
 import { TabContext } from '@mui/lab';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
+<<<<<<< HEAD
 import UploadExcell from "../UploadExcell/UploadExcell";
+=======
+import  UploadExcell  from "../UploadExcell/UploadExcell";
+>>>>>>> 46949ecd971eb79ff0ee71dcd57125ac4b1ac2be
 import "../EmployeeList/EmployeeList.css"
 import Mis from "../../components/mis/Mis"
 import Attrition from "../../components/attrition/Attrition";
@@ -15,6 +19,7 @@ import Active from "../../components/active/Active";
 
 function Report() {
   const [value, setValue] = React.useState('1');
+<<<<<<< HEAD
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -45,6 +50,39 @@ function Report() {
         </TabContext>
       </Box>
 
+=======
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+  return (
+    <div className="newUser">
+     <Box sx={{ width: '100%', typography: 'body1' }}>
+      <TabContext value={value}>
+        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+          <TabList onChange={handleChange} aria-label="lab API tabs example">
+            <Tab label=" Mis" value="1" />
+            <Tab label="Active" value="2" />
+            <Tab label="Attrition" value="3" />
+           
+          </TabList>
+        </Box>
+        <TabPanel value="1">
+       <h1>This is Mis</h1>
+        </TabPanel>
+        <TabPanel value="2">  
+        <h1>This is ACTIVE</h1>
+        
+        </TabPanel>
+        <TabPanel value="3">  
+        <h1>This is Attrition</h1>
+        
+        </TabPanel>
+        
+      </TabContext>
+    </Box>
+    
+>>>>>>> 46949ecd971eb79ff0ee71dcd57125ac4b1ac2be
     </div>
   );
 }
