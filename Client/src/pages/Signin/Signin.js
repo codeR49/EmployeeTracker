@@ -9,14 +9,16 @@ import jwt_decode from "jwt-decode";
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import  Sidebar from "../../components/sidebar/Sidebar"
+import "../Signin/Signin.css";
+import alchemylogo from "../../Image/638-01.png"
 
 const Signin = () => {
 
-    const paperStyle = { padding: 20, height: '60vh', width: 350, margin: "100px auto" }
+    const paperStyle = { padding: 20, height: '60vh', width: 350, margin: "100px auto"  }
     const avatarStyle = { backgroundColor: '#1bbd7e' }
-    const btnstyle = { margin: '30px 0' }
+    const btnstyle = { margin: '30px 0'   }
     const txtstyle = { margin: "10px 0" }
-
+    const signintxtStyle = { marginTop: "40px" }
     let [username, setUsername] = useState('');
     let [password, setPassword] = useState('');
     let [loginstatus, setloginstatus] = useState(0);
@@ -63,16 +65,29 @@ const Signin = () => {
 
     }
     return (
-        <div style={{margin:'auto'}}>
+        <div style={{width:"100%" , backgroundColor:"#FDF9ED"}} >
+            <div style={{width:"60%"}}>
+              <div style={{marginLeft:"300px", marginTop:"100px"}}>
+              <img src={alchemylogo} height="100px"/>
+              </div>
+              <div style={{marginLeft:"310px" ,marginTop:"30px" }} >
+                   <h2 style={{ borderBottom: "2px solid red", width:"100%"}}>Fully customizable Leave Management </h2>
+              </div>
+              <div style={{marginLeft:"310px" ,marginTop:"30px" }}>
+                  <p style={{fontWeight:"bold", fontSize:"15px"}}><span style={{color:"rgb(93 138 152)"}}>Alchemy Infotech</span> eliminates manual work involved in leave administration <br/>and follow ups - saving time and costs.</p>
+              </div>
+              
+            </div>
 
+<div style={{marginLeft:"850px", marginTop:"-330px",width:"40%"}}>
 <form onSubmit={submithandler}>
             <Grid>
             <Paper elevation={10} style={paperStyle}>
                 <Grid align='center'>
-                    <Avatar style={avatarStyle}><LockOutlinedIcon /></Avatar>
-                    <h2>Sign In</h2>
+                <img src={alchemylogo} height="60px"/>
+                    {/* <h2>Sign In</h2> */}
                 </Grid>
-                <TextField label='Username' placeholder='Enter username' type='text' id ='username' fullWidth required style={txtstyle} onChange={onchangeusernamehandler}/>
+                <TextField label='Username' placeholder='Enter username' type='text' id ='username' fullWidth required style={signintxtStyle} onChange={onchangeusernamehandler}/>
                 <TextField label='Password' placeholder='Enter password' type='password' id='password' fullWidth required style={txtstyle} onChange={onchangepasswordhandler}/>
 
                 {/* <FormControlLabel style={txtstyle}
@@ -84,7 +99,7 @@ const Signin = () => {
                     }
                     label="Remember me"
                  /> */}
-                <Button type='submit' color='primary' variant="contained" style={btnstyle} fullWidth>Sign in</Button>
+                <Button type='submit'  color='primary' variant="contained" style={btnstyle } fullWidth>Sign in</Button>
                 <Typography >
                     <Link href="#" >
                         Forgot password ?
@@ -98,6 +113,7 @@ const Signin = () => {
             </Paper>
         </Grid>
         </form>
+</div>
             </div>
         
     )
