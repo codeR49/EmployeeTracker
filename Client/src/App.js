@@ -13,6 +13,7 @@ import AdminSidebar from "./components/admin/adminsidebar";
 import ReviewEmployee from "./pages/Admin/ReviewEmployee/ReviewEmployee";
 import Report from "./pages/Report/Report"
 import AdminReport from "./pages/Admin/ReviewEmployee/AdminReport/AdminReport"
+import Timesheet from "./pages/Timesheet/Timesheet";
 
 
 function App() {
@@ -39,11 +40,6 @@ function App() {
               <Home />
 
             </Route>
-
-
-
-
-
             <Route path="/addnewemp">
               <Sidebar />
               <Trackeremp />
@@ -60,7 +56,10 @@ function App() {
               <Sidebar />
               <EmployeeList />
             </Route>
-
+            <Route path="/timesheet">
+              <Sidebar />
+              <Timesheet />
+            </Route>
 
             {/* for admin Route */}
 

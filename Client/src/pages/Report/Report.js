@@ -12,6 +12,7 @@ import Mis from "../../components/mis/Mis"
 import Attrition from "../../components/attrition/Attrition";
 import Active from "../../components/active/Active";
 
+
 function Report() {
   const [value, setValue] = React.useState('1');
 
@@ -43,7 +44,7 @@ function Report() {
 
         </TabContext>
       </Box>
-
+      
 
     </div>
   );

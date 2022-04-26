@@ -60,12 +60,12 @@ export default function Sidebar() {
                Report
               </li>
             </Link>
-            {/* <Link to="/exceldata" className="link">
+            <Link to="/timesheet" className="link">
               <li className="sidebarListItem">
                 <Storefront className="sidebarIcon" />
-                Excel Data
+                Timesheet
               </li>
-            </Link> */}
+            </Link>
             
 
           </ul>
