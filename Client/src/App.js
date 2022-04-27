@@ -14,6 +14,7 @@ import ReviewEmployee from "./pages/Admin/ReviewEmployee/ReviewEmployee";
 import Report from "./pages/Report/Report"
 import AdminReport from "./pages/Admin/ReviewEmployee/AdminReport/AdminReport"
 import Timesheet from "./pages/Timesheet/Timesheet";
+import ViewTimesheet from "./pages/ViewTimesheet/ViewTimesheet";
 
 
 function App() {
@@ -46,11 +47,11 @@ function App() {
 
             </Route>
             
-            <Route path="/report">
+            {/* <Route path="/report">
               <Sidebar />
               <Report />
 
-            </Route>
+            </Route> */}
 
             <Route path="/employeedetails">
               <Sidebar />
@@ -59,6 +60,10 @@ function App() {
             <Route path="/timesheet">
               <Sidebar />
               <Timesheet />
+            </Route>
+            <Route path="/viewtimesheet">
+              <Sidebar />
+              <ViewTimesheet />
             </Route>
 
             {/* for admin Route */}
@@ -74,11 +79,11 @@ function App() {
             </Route>
            
           </Switch>
-          <Route path="/admin/report">
+          {/* <Route path="/admin/report">
           <AdminSidebar />
               <AdminReport />
 
-            </Route>
+            </Route> */}
 
         </div>
       </Router>

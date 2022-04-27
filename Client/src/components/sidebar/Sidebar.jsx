@@ -49,24 +49,29 @@ export default function Sidebar() {
             <Link to="/employeedetails" className="link">
               <li className="sidebarListItem">
                 <PermIdentity className="sidebarIcon" />
-                Employee Details
+                Employee Mis Details
               </li>
             </Link>
 
 
-            <Link to="/report" className="link">
+            {/* <Link to="/report" className="link">
               <li className="sidebarListItem">
                 <SummarizeIcon className="sidebarIcon" />
                Report
               </li>
-            </Link>
+            </Link> */}
             <Link to="/timesheet" className="link">
               <li className="sidebarListItem">
                 <Storefront className="sidebarIcon" />
-                Timesheet
+                Upload Timesheet
               </li>
             </Link>
-            
+            <Link to="/viewtimesheet" className="link">
+              <li className="sidebarListItem">
+                <Storefront className="sidebarIcon" />
+                View Timesheet
+              </li>
+            </Link>
 
           </ul>
         </div>

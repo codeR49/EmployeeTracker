@@ -51,12 +51,12 @@ export default function AdminSidebar() {
             </Link>
 
 
-            <Link to="/admin/report" className="link">
+            {/* <Link to="/admin/report" className="link">
               <li className="sidebarListItem">
                 <SummarizeIcon className="sidebarIcon" />
                Report
               </li>
-            </Link>
+            </Link> */}
 
 
             {/* <Link to="/exceldata" className="link">
