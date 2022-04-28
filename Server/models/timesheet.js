@@ -6,6 +6,10 @@ var timeSheetSchema = new Schema({
         type: String,
         required: true
     },
+    fileName: {
+        type: String,
+        required: true
+    },
     uploadDate: {
         type: Date,
         required: true

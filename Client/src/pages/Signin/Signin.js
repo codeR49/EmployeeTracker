@@ -65,21 +65,10 @@ const Signin = () => {
 
     }
     return (
-        <div style={{width:"100%" , backgroundColor:"#FDF9ED"}} >
-            <div style={{width:"60%"}}>
-              <div style={{marginLeft:"300px", marginTop:"100px"}}>
-              <img src={alchemylogo} height="100px"/>
-              </div>
-              <div style={{marginLeft:"310px" ,marginTop:"30px" }} >
-                   <h2 style={{ borderBottom: "2px solid red", width:"100%"}}>Fully customizable Leave Management </h2>
-              </div>
-              <div style={{marginLeft:"310px" ,marginTop:"30px" }}>
-                  <p style={{fontWeight:"bold", fontSize:"15px"}}><span style={{color:"rgb(93 138 152)"}}>Alchemy Infotech</span> eliminates manual work involved in leave administration <br/>and follow ups - saving time and costs.</p>
-              </div>
-              
-            </div>
+        <div >
+            
 
-<div style={{marginLeft:"850px", marginTop:"-330px",width:"40%"}}>
+<div className='login'>
 <form onSubmit={submithandler}>
             <Grid>
             <Paper elevation={10} style={paperStyle}>

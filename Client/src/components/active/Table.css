@@ -1,11 +1,11 @@
-.viewButton {
+ /* .viewButton {
     padding: 2px 5px;
     border-radius: 5px;
     color: darkblue;
     border: 1px dotted rgba(0, 0, 139, 0.596);
     cursor: pointer;
     margin:5px;
-    /* padding: 10px; */
+     padding: 10px;
   }
   
   .deleteButton {
@@ -41,12 +41,12 @@
     cursor: pointer;
     margin-left: 20%;
   }
-  /* .tablecontainer{
+  .tablecontainer{
     height: 350px;
     width: 800px;
     border: 5px;
     border-color: black;
-  } */
+  }
   table {
     border: 5px solid;
   }
@@ -75,4 +75,4 @@
 
     .paginateDiv{
       margin-top: 120px;
-    }
+    }  */

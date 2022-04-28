@@ -51,10 +51,10 @@ const timesheetdata = async (req, res, next) => {
 const timesheetFileUpload = async (req, res, next) => {
     try {
         const csvFilePath = req.file.path;
-        // const fileName = req.file.originalname;
-        // console.log(fileName);
+        // const fileName = req.file;
+        console.log(csvFilePath);
 
-        await Timesheet.create({ clientId: req.body.clientId, uploadDate: req.body.uploadDate, month: req.body.month, excelTojson: await csv().fromFile(csvFilePath) });
+        await Timesheet.create({ clientId: req.body.clientId, fileName: csvFilePath, uploadDate: req.body.uploadDate, month: req.body.month, excelTojson: await csv().fromFile(csvFilePath) });
         res.setHeader('Content-type', 'application/json');
         res.status(201).send('File Uploaded Successfully');
     } catch (error) {
@@ -62,8 +62,28 @@ const timesheetFileUpload = async (req, res, next) => {
     }
 }
 
+const download = async (req, res) => {
+    await Timesheet.findOne({clientId: req.params.clientId, month: req.params.month})
+                                            
+    .select("fileName")
+    .then((download) => {
+        
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/json');
+        if(download == null){
+            res.json("Timesheet Not Found");
+        }
+        else{
+            res.json(download);
+        }
+        
+    }, (err) => next(err))
+    .catch((err) => next(err));
+}
+
 module.exports = {
     getAllMis,
     timesheetdata,
-    timesheetFileUpload
+    timesheetFileUpload,
+    download
 }

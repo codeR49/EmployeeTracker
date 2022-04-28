@@ -66,13 +66,13 @@ export default function Sidebar() {
                 Upload Timesheet
               </li>
             </Link>
-            <Link to="/viewtimesheet" className="link">
+            
+            <Link to="/downloadtimesheet" className="link">
               <li className="sidebarListItem">
                 <Storefront className="sidebarIcon" />
                 View Timesheet
               </li>
             </Link>
-
           </ul>
         </div>
 

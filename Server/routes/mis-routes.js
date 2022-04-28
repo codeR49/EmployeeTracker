@@ -10,6 +10,8 @@ misRouter.route('/')
 
 misRouter.get('/timesheet', misController.timesheetdata);
 
+misRouter.get('/download/:clientId/:month', misController.download);
+
 misRouter.post('/upload', upload.single('file'), misController.timesheetFileUpload);
 
 module.exports = misRouter;
