@@ -5,12 +5,17 @@ import {
   PermIdentity,
 
 } from "@material-ui/icons";
-import SummarizeIcon from '@mui/icons-material/Summarize';
+// import SummarizeIcon from '@mui/icons-material/Summarize';
 import { Link } from "react-router-dom";
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 import Topbar from "../topbar/Topbar";
 
 export default function AdminSidebar() {
+
+  const logout = () => {
+    localStorage.clear();
+  }
+
   return (
     <div className="sidebar">
       <Topbar/>
@@ -65,7 +70,7 @@ export default function AdminSidebar() {
                 Excel Data
               </li>
             </Link> */}
-             <Link to="/" className="link">
+             <Link to="/" className="link" onClick={logout}>
               <li className="sidebarListItem">
                 <LogoutOutlinedIcon className="sidebarIcon" />
                 Logout

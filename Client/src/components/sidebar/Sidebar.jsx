@@ -14,6 +14,10 @@ import { Link } from "react-router-dom";
 import Topbar from "../topbar/Topbar";
 
 export default function Sidebar() {
+  
+  const logout = () => {
+    localStorage.clear()
+  }
   return (
     <div className="sidebar">
       <Topbar/>
@@ -81,7 +85,7 @@ export default function Sidebar() {
           <ul className="sidebarList">
            <Link to ="/" className="link">
            
-           <li className="sidebarListItem">
+           <li className="sidebarListItem" onClick={logout}>
               <LogoutIcon className="sidebarIcon" />
               Log out
             </li>

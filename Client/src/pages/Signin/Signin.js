@@ -5,7 +5,6 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import DevelopmentUrl from '../../data/api';
 import Axios from 'axios';
 import jwt_decode from "jwt-decode";
-
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import  Sidebar from "../../components/sidebar/Sidebar"
